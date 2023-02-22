@@ -47,6 +47,7 @@ namespace Mission06_lah263.Controllers
             }
             else
             {
+                ViewBag.Categories = _movieContext.Categories.ToList();
                 return View(nm);
             }
         }
