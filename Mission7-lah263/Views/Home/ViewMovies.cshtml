@@ -1,0 +1,40 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Wait List";
+}
+
+@model List<NewMovie> 
+
+<table class="table table-bordered">
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Category</td>
+            <td>Title</td>
+            <td>Year</td>
+            <td>Director</td>
+            <td>Rating</td>
+            <td>Edited</td>
+            <td>Lent To</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.Category.CategoryName</td>
+                    <td>@x.Title</td>
+                    <td>@x.Year</td>
+                    <td>@x.Director</td>
+                    <td>@x.Rating</td>
+                    <td>@x.Edited</td>
+                    <td>@x.LentTo</td>
+
+                    <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.MovieID">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.MovieID">Delete</a></td>
+                </tr>
+
+            }
+    </tbody>
+</table>
